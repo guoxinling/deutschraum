@@ -1,0 +1,2 @@
+import type { Task } from '../domain/types'
+export function TaskCard({ task, onComplete }: { task: Task; onComplete: () => void }) { return <article className="task-card" data-testid="task-card"><div><strong>{task.type === 'input' ? 'Input' : task.type === 'output' ? 'Output' : task.type === 'review' ? 'Wiederholen' : 'Reflexion'}</strong><span>{task.plannedMinutes} Min.</span></div><p>{task.instructions}</p>{task.status === 'completed' ? <b>Erledigt</b> : <button onClick={onComplete} type="button">Manuell abschließen</button>}</article> }
